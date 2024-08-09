@@ -16,3 +16,12 @@ Specifications: <br />
 Mysql <br />
 Laravel Breeze <br />
 Tailwind CSS <br />
+<br />
+Login Details:<br />
+email: lael@email<br />
+password: laellael<br />
+<br />
+email: marj@marj<br />
+password: marjmarj<br />
+<br />
+Thank you Sir Venn! :laughing: :satisfied:
