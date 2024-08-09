@@ -1,10 +1,18 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex items-center justify-between">
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                {{ __('Welcome') }}
-            </h2>
-            <button id="dark-mode-toggle" class="text-gray-700 dark:text-gray-300 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 rounded-lg px-4 py-2 font-medium focus:outline-none">
+            <!-- Welcome Text and Subheading -->
+            <div class="flex flex-col">
+                <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+                    {{ __('Welcome, ' . strtoupper(Auth::user()->name)) }}
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 mt-1">
+                    {{ __('What\'s the ') }}<strong class="font-semibold">{{ __('Next Step') }}</strong>{{ __(' are we going to do today?') }}
+                </p>
+            </div>
+
+            <!-- Dark Mode Toggle Button -->
+            <button id="dark-mode-toggle" class="text-gray-700 dark:text-gray-300 bg-blue-700 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700 rounded-lg px-4 py-2 font-medium focus:outline-none">
                 🌙
             </button>
         </div>
@@ -35,9 +43,8 @@
                     <div class="px-6 py-4">
                         <div class="flex items-center justify-between mb-4">
                             <a href="{{ route('todos.create') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                                Create Todo
+                                Create Step
                             </a>
-
                         </div>
                     </div>
 
