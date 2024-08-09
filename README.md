@@ -1,6 +1,7 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 Laravel Final Project | CIT18 | CITCS INTL Group B <br />
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+
 <br />
 Group 11 <br />
 Dela Pena, Euan Mathieu <br />
@@ -17,11 +18,13 @@ Mysql <br />
 Laravel Breeze <br />
 Tailwind CSS <br />
 <br />
-Login Details:<br />
+Sample Login Details:<br />
 email: lael@email<br />
 password: laellael<br />
 <br />
 email: marj@marj<br />
 password: marjmarj<br />
 <br />
-Thank you Sir Venn! :laughing: :satisfied:
+User can register!
+<br />
+Thank you Sir Venn! :laughing: :satisfied: :laughing:
