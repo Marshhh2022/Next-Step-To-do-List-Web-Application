@@ -5,11 +5,11 @@ use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return redirect()->route('todos.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -25,6 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::put('todos/update', [TodoController::class, 'update'])->name('todos.update');
     
     Route::delete('todos/{id}/destroy', [TodoController::class, 'destroy'])->name('todos.destroy');
+
     // Route::delete('todos/destroy', [TodoController::class, 'destroy'])->name('todos.destroy');
     
 

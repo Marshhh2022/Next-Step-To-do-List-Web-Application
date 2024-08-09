@@ -10,11 +10,10 @@ class TodoController extends Controller
 {
     public function index()
     {
-        $todos = Todo::all();
-        return view('todos.index',[
-            'todos' => $todos
-        ]);
+        $todos = Todo::where('user_id', auth()->id())->get();  // Filter by user
+        return view('todos.index', ['todos' => $todos]);
     }
+    
 
     public function create()
     {
@@ -23,53 +22,54 @@ class TodoController extends Controller
 
     public function store(TodoRequest $request)
     {
-        // $request->validated();
+
         Todo::create([
-                'title' => $request->title,
-                'description' => $request->description,
-                'is_completed' => 0
+            'title' => $request->title,
+            'description' => $request->description,
+            'is_completed' => 0,
+            'user_id' => auth()->id(), // Add this line to associate the todo with the current user
         ]);
         $request->session()->flash('alert-success', 'Step Created Successfully');
-
+    
         return to_route('todos.index');
     }
 
     public function edit($id)
     {
-        $todo = Todo::find($id);
-        if(! $todo){
+        $todo = Todo::where('id', $id)->where('user_id', auth()->id())->first();
+    
+        if (!$todo) {
             request()->session()->flash('error', 'Unable to locate Step');
-            return to_route('todos.index')->Errors([
-                'error' => 'Unable to locate the Step.'
-            ]);
+            return to_route('todos.index');
         }
+    
         return view('todos.edit', ['todo' => $todo]);
     }
-
+    
     public function update(TodoRequest $request)
     {
-      
-        $todo = Todo::find($request->todo_id);
-        if(! $todo){
+        $todo = Todo::where('id', $request->todo_id)->where('user_id', auth()->id())->first();
+    
+        if (!$todo) {
             request()->session()->flash('error', 'Unable to locate Step');
-            return to_route('todos.index')->Errors([
-                'error' => 'Unable to locate the Step.'
-            ]);
+            return to_route('todos.index');
         }
-
+    
         $todo->update([
             'title' => $request->title,
             'description' => $request->description,
             'is_completed' => $request->is_completed,
         ]);
+    
         $request->session()->flash('alert-info', 'Step Updated Successfully');
         return to_route('todos.index');
     }
-
+    
     public function destroy($id)
     {
-        $todo = Todo::find($id);
-        if(! $todo){
+        $todo = Todo::where('id', $id)->where('user_id', auth()->id())->first();
+    
+        if (!$todo) {
             request()->session()->flash('error', 'Unable to locate Step');
             return to_route('todos.index');
         }

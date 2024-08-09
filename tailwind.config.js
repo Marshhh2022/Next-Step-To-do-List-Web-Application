@@ -20,5 +20,6 @@ export default {
         },
     },
 
+    darkMode: 'class', // Enable dark mode with the `class` strategy
     plugins: [forms],
 };

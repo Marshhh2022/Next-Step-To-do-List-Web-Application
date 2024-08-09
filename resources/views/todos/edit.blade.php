@@ -1,8 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
+        <div class="flex items-center justify-between">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Edit your Next Step') }}
         </h2>
+        <button id="dark-mode-toggle" class="text-gray-700 dark:text-gray-300 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 rounded-lg px-4 py-2 font-medium focus:outline-none">
+            🌙
+        </button>
+    </div>
     </x-slot>
 
     <div class="py-12">
@@ -43,4 +48,9 @@
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById('dark-mode-toggle').addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+    </script>
 </x-app-layout>
